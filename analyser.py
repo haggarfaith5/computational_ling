@@ -254,9 +254,9 @@ if __name__ == "__main__":
         ("kono",   "3/4",  "sg"), ("kono",   "3/4",  "pl"),
         ("cho",    "5/6",  "sg"), ("cho",    "5/6",  "pl"),
         ("tabu",   "7/8",  "sg"), ("tabu",   "7/8",  "pl"),
-        ("yumba",  "9/10", "sg"), ("yumba",  "9/10", "pl"),
-        ("dege",   "9/10", "sg"), ("dege",   "9/10", "pl"),
-        ("bwa",    "9/10", "sg"), ("bwa",    "9/10", "pl"),
+        ("nyumba", "9/10", "sg"), ("nyumba", "9/10", "pl"),
+        ("ndege",  "9/10", "sg"), ("ndege",  "9/10", "pl"),
+        ("mbwa",   "9/10", "sg"), ("mbwa",   "9/10", "pl"),
     ]
     for stem, cp, num in test_triples:
         surface = generate(stem, cp, num)
