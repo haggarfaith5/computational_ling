@@ -152,3 +152,38 @@ def analyse(word: str) -> dict:
           or {"result": "no analysis found"} for unrecognised words.
     """
     word = word.strip().lower()
+
+    # Step 1 – exact surface-form lookup
+    if word in _SURFACE_INDEX:
+        entry = _SURFACE_INDEX[word]
+        return {
+            "prefix":     entry["prefix"],
+            "stem":       entry["stem"],
+            "class_pair": entry["class_pair"],
+            "number":     entry["number"],
+            "result":     "analysis found",
+        }
+
+    # Step 2 – prefix-stripping via re.match (longest-match first)
+    for prefix in _ALL_PREFIXES:
+        if prefix == "":
+            continue  # skip empty prefix; can't strip nothing
+        pattern = r"^" + re.escape(prefix) + r"(.+)$"
+        m = re.match(pattern, word)
+        if m:
+            remainder = m.group(1)
+            if remainder in _STEM_INDEX:
+                entry  = _STEM_INDEX[remainder]
+                number = "sg" if prefix == entry["sg_prefix"] else "pl"
+                return {
+                    "prefix":     prefix,
+                    "stem":       remainder,
+                    "class_pair": entry["class_pair"],
+                    "number":     number,
+                    "result":     "analysis found",
+                }
+
+    # Step 3 – unrecognised word
+    return {"result": "no analysis found"}
+
+
