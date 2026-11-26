@@ -130,3 +130,25 @@ _ALL_PREFIXES = sorted(
     {e["sg_prefix"] for e in LEXICON} | {e["pl_prefix"] for e in LEXICON},
     key=len, reverse=True,
 )
+
+# TASK 2 – ANALYSER  (surface → lexical)
+# ──────────────────────────────────────────────────────────────────────────────
+
+def analyse(word: str) -> dict:
+    """
+    Analyse a surface word form and return a structured lexical result.
+
+    Strategy
+    --------
+    1. Exact look-up in the surface-form index (covers all stored forms).
+    2. Prefix-stripping with re.match(), trying each known prefix
+       longest-first; if the remainder matches a known stem, return
+       the structured result.
+    3. If neither step succeeds, return {"result": "no analysis found"}.
+
+    Returns
+    -------
+    dict  with keys: prefix, stem, class_pair, number, result
+          or {"result": "no analysis found"} for unrecognised words.
+    """
+    word = word.strip().lower()
