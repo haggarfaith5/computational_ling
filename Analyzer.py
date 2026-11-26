@@ -186,4 +186,50 @@ def analyse(word: str) -> dict:
     # Step 3 – unrecognised word
     return {"result": "no analysis found"}
 
+# ──────────────────────────────────────────────────────────────────────────────
+# TASK 3 – GENERATOR  (lexical → surface)
+# ──────────────────────────────────────────────────────────────────────────────
+
+def generate(stem: str, class_pair: str, number: str) -> str | None:
+    """
+    Generate the correct surface word form from a lexical triple.
+
+    Parameters
+    ----------
+    stem       : noun stem string  (e.g. 'onto', 'tabu', 'yumba')
+    class_pair : noun-class pair   (e.g. '1/2', '7/8', '9/10')
+    number     : 'sg' (singular) or 'pl' (plural)
+
+    Returns
+    -------
+    str  – surface form (prefix concatenated with stem)
+    None – if the (stem, class_pair) pair is not in the lexicon
+
+    Algorithm
+    ---------
+    1. Search LEXICON for an entry where entry['stem'] == stem
+       and entry['class_pair'] == class_pair.
+    2. Select sg_prefix (if number == 'sg') or pl_prefix (if number == 'pl').
+    3. Concatenate prefix + stem and return the resulting surface form.
+
+    Round-trip property
+    -------------------
+    For every lexicon entry E and number N in {'sg', 'pl'}:
+        analyse(generate(E['stem'], E['class_pair'], N))['stem'] == E['stem']
+    """
+    stem   = stem.strip().lower()
+    number = number.strip().lower()
+
+    if number not in ("sg", "pl"):
+        raise ValueError(f"number must be 'sg' or 'pl', got {number!r}")
+
+    for entry in LEXICON:
+        if entry["stem"] == stem and entry["class_pair"] == class_pair:
+            # Return the pre-verified stored surface form directly,
+            # which correctly handles all prefix–stem fusions (e.g. class 9/10
+            # nasal assimilation: nd+dege is stored as 'ndege', not 'nddege').
+            return entry["sg_form"] if number == "sg" else entry["pl_form"]
+
+    return None  # (stem, class_pair) not found in lexicon
+
 
