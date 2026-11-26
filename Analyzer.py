@@ -64,3 +64,15 @@ LEXICON = [
      "sg_form": "jina",     "pl_form": "majina",     "gloss": "name"},
     {"stem": "bavu",    "class_pair": "5/6",  "sg_prefix": "",    "pl_prefix": "ma",
      "sg_form": "bavu",     "pl_form": "mabavu",     "gloss": "rib/side"},
+
+    # ── class 7/8  ki-/vi-  (implements, languages, diminutives) ─────────────
+    {"stem": "tabu",    "class_pair": "7/8",  "sg_prefix": "ki",  "pl_prefix": "vi",
+     "sg_form": "kitabu",   "pl_form": "vitabu",     "gloss": "book"},
+    {"stem": "su",      "class_pair": "7/8",  "sg_prefix": "ki",  "pl_prefix": "vi",
+     "sg_form": "kisu",     "pl_form": "visu",       "gloss": "knife"},
+    {"stem": "kapu",    "class_pair": "7/8",  "sg_prefix": "ki",  "pl_prefix": "vi",
+     "sg_form": "kikapu",   "pl_form": "vikapu",     "gloss": "basket"},
+    {"stem": "chwa",    "class_pair": "7/8",  "sg_prefix": "ki",  "pl_prefix": "vi",
+     "sg_form": "kichwa",   "pl_form": "vichwa",     "gloss": "head"},
+    {"stem": "azi",     "class_pair": "7/8",  "sg_prefix": "ki",  "pl_prefix": "vi",
+     "sg_form": "kiazi",    "pl_form": "viazi",      "gloss": "potato"},
