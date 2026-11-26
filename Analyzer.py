@@ -94,3 +94,39 @@ LEXICON = [
      "sg_form": "ndizi",    "pl_form": "ndizi",     "gloss": "banana"},
 ]
 
+# ──────────────────────────────────────────────────────────────────────────────
+# BUILD INDICES
+# ──────────────────────────────────────────────────────────────────────────────
+
+# surface word → lexical entry info
+_SURFACE_INDEX: dict[str, dict] = {}
+
+# stem string → lexicon entry
+_STEM_INDEX: dict[str, dict] = {}
+
+
+def _build_indices() -> None:
+    _SURFACE_INDEX.clear()
+    _STEM_INDEX.clear()
+    for entry in LEXICON:
+        sg, pl = entry["sg_form"], entry["pl_form"]
+        if sg not in _SURFACE_INDEX:
+            _SURFACE_INDEX[sg] = {
+                "stem": entry["stem"], "class_pair": entry["class_pair"],
+                "number": "sg",       "prefix": entry["sg_prefix"],
+            }
+        if pl not in _SURFACE_INDEX:
+            _SURFACE_INDEX[pl] = {
+                "stem": entry["stem"], "class_pair": entry["class_pair"],
+                "number": "pl",       "prefix": entry["pl_prefix"],
+            }
+        _STEM_INDEX[entry["stem"]] = entry
+
+
+_build_indices()
+
+# All known prefixes, longest first (for greedy prefix-stripping in analyse)
+_ALL_PREFIXES = sorted(
+    {e["sg_prefix"] for e in LEXICON} | {e["pl_prefix"] for e in LEXICON},
+    key=len, reverse=True,
+)
