@@ -51,3 +51,16 @@ LEXICON = [
      "sg_form": "mlango",   "pl_form": "milango",    "gloss": "door"},
     {"stem": "mea",     "class_pair": "3/4",  "sg_prefix": "m",   "pl_prefix": "mi",
      "sg_form": "mmea",     "pl_form": "mimea",      "gloss": "plant"},
+
+    # ── class 5/6  Ø|ji-/ma-  (fruits, paired body parts) ────────────────────
+    # ji- prefix: used for some class-5 nouns; Ø: others have no overt prefix
+    {"stem": "cho",     "class_pair": "5/6",  "sg_prefix": "ji",  "pl_prefix": "ma",
+     "sg_form": "jicho",    "pl_form": "macho",      "gloss": "eye"},
+    {"stem": "tunda",   "class_pair": "5/6",  "sg_prefix": "",    "pl_prefix": "ma",
+     "sg_form": "tunda",    "pl_form": "matunda",    "gloss": "fruit"},
+    {"stem": "gari",    "class_pair": "5/6",  "sg_prefix": "",    "pl_prefix": "ma",
+     "sg_form": "gari",     "pl_form": "magari",     "gloss": "vehicle/car"},
+    {"stem": "ina",     "class_pair": "5/6",  "sg_prefix": "j",   "pl_prefix": "ma",
+     "sg_form": "jina",     "pl_form": "majina",     "gloss": "name"},
+    {"stem": "bavu",    "class_pair": "5/6",  "sg_prefix": "",    "pl_prefix": "ma",
+     "sg_form": "bavu",     "pl_form": "mabavu",     "gloss": "rib/side"},
