@@ -39,3 +39,15 @@ LEXICON = [
      "sg_form": "mwalimu",  "pl_form": "walimu",     "gloss": "teacher"},
     {"stem": "ana",     "class_pair": "1/2",  "sg_prefix": "mw",  "pl_prefix": "wa",
      "sg_form": "mwana",    "pl_form": "wana",       "gloss": "son/child"},
+
+    # ── class 3/4  m-/mi-  (trees, rivers, body parts) ───────────────────────
+    {"stem": "ti",      "class_pair": "3/4",  "sg_prefix": "m",   "pl_prefix": "mi",
+     "sg_form": "mti",      "pl_form": "miti",       "gloss": "tree"},
+    {"stem": "to",      "class_pair": "3/4",  "sg_prefix": "m",   "pl_prefix": "mi",
+     "sg_form": "mto",      "pl_form": "mito",       "gloss": "river"},
+    {"stem": "kono",    "class_pair": "3/4",  "sg_prefix": "m",   "pl_prefix": "mi",
+     "sg_form": "mkono",    "pl_form": "mikono",     "gloss": "hand/arm"},
+    {"stem": "lango",   "class_pair": "3/4",  "sg_prefix": "m",   "pl_prefix": "mi",
+     "sg_form": "mlango",   "pl_form": "milango",    "gloss": "door"},
+    {"stem": "mea",     "class_pair": "3/4",  "sg_prefix": "m",   "pl_prefix": "mi",
+     "sg_form": "mmea",     "pl_form": "mimea",      "gloss": "plant"},
