@@ -233,3 +233,29 @@ def generate(stem: str, class_pair: str, number: str) -> str | None:
     return None  # (stem, class_pair) not found in lexicon
 
 
+# ──────────────────────────────────────────────────────────────────────────────
+# DEMO / MAIN
+# ──────────────────────────────────────────────────────────────────────────────
+
+if __name__ == "__main__":
+    SEP = "=" * 70
+    print(SEP)
+    print("Swahili Morphological Transducer  –  Tasks 1–3")
+    print(SEP)
+
+    # ── Task 3: generate ──────────────────────────────────────────────────────
+    print("\n── TASK 3: generate(stem, class_pair, number) ──\n")
+    test_triples = [
+        ("tu",     "1/2",  "sg"), ("tu",     "1/2",  "pl"),
+        ("kono",   "3/4",  "sg"), ("kono",   "3/4",  "pl"),
+        ("cho",    "5/6",  "sg"), ("cho",    "5/6",  "pl"),
+        ("tabu",   "7/8",  "sg"), ("tabu",   "7/8",  "pl"),
+        ("nyumba", "9/10", "sg"), ("nyumba", "9/10", "pl"),
+        ("ndege",  "9/10", "sg"), ("ndege",  "9/10", "pl"),
+        ("mbwa",   "9/10", "sg"), ("mbwa",   "9/10", "pl"),
+    ]
+    for stem, cp, num in test_triples:
+        surface = generate(stem, cp, num)
+        print(f"  generate({stem!r:12s}, {cp!r:6s}, {num!r:4s})  →  {surface}")
+
+
