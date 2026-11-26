@@ -76,3 +76,21 @@ LEXICON = [
      "sg_form": "kichwa",   "pl_form": "vichwa",     "gloss": "head"},
     {"stem": "azi",     "class_pair": "7/8",  "sg_prefix": "ki",  "pl_prefix": "vi",
      "sg_form": "kiazi",    "pl_form": "viazi",      "gloss": "potato"},
+
+    # ── class 9/10  N-/N-  (animals, loanwords) ───────────────────────────────
+    # In Swahili class 9/10, the nasal prefix fuses with the stem-initial
+    # consonant (nasal assimilation), so the stem is stored WITH the nasal
+    # already incorporated and the prefix is empty ("").
+    # sg and pl surface forms are identical; number marked by verb agreement.
+    {"stem": "nyumba",  "class_pair": "9/10", "sg_prefix": "",    "pl_prefix": "",
+     "sg_form": "nyumba",   "pl_form": "nyumba",    "gloss": "house"},
+    {"stem": "ndege",   "class_pair": "9/10", "sg_prefix": "",    "pl_prefix": "",
+     "sg_form": "ndege",    "pl_form": "ndege",     "gloss": "bird/aeroplane"},
+    {"stem": "mbwa",    "class_pair": "9/10", "sg_prefix": "",    "pl_prefix": "",
+     "sg_form": "mbwa",     "pl_form": "mbwa",      "gloss": "dog"},
+    {"stem": "nguo",    "class_pair": "9/10", "sg_prefix": "",    "pl_prefix": "",
+     "sg_form": "nguo",     "pl_form": "nguo",      "gloss": "cloth/clothes"},
+    {"stem": "ndizi",   "class_pair": "9/10", "sg_prefix": "",    "pl_prefix": "",
+     "sg_form": "ndizi",    "pl_form": "ndizi",     "gloss": "banana"},
+]
+
