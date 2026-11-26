@@ -259,3 +259,35 @@ if __name__ == "__main__":
         print(f"  generate({stem!r:12s}, {cp!r:6s}, {num!r:4s})  →  {surface}")
 
 
+ # ── Task 2: analyse ───────────────────────────────────────────────────────
+    print("\n── TASK 2: analyse(word) ──\n")
+    sample = [
+        "mtu", "watu", "miti", "mikono", "jicho", "macho",
+        "vitabu", "kikapu", "nyumba", "ndege", "mbwa", "magari",
+        "ZZZUNK",
+    ]
+    for w in sample:
+        result = analyse(w)
+        print(f"  analyse({w!r:14s})  →  {result}")
+
+    # ── Round-trip check ──────────────────────────────────────────────────────
+    print("\n── ROUND-TRIP CHECK  analyse(generate(stem, cp, num))['stem'] == stem ──\n")
+    passed = total = 0
+    for entry in LEXICON:
+        for num in ("sg", "pl"):
+            stem, cp = entry["stem"], entry["class_pair"]
+            surface  = generate(stem, cp, num)
+            if surface is None:
+                print(f"  ✗  generate({stem!r}, {cp!r}, {num!r}) returned None")
+                total += 1
+                continue
+            recovered = analyse(surface).get("stem")
+            ok = (recovered == stem)
+            icon = "✓" if ok else "✗"
+            print(f"  {icon}  {stem:12s} {cp:6s} {num:3s}"
+                  f"  →  {surface:20s}  recovered: {recovered}")
+            passed += ok
+            total  += 1
+    print(f"\n  Round-trip: {passed}/{total} passed")
+
+
